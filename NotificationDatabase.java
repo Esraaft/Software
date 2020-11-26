@@ -8,28 +8,13 @@ public class NotificationDatabase {
 		Scanner scanner=new Scanner(System.in);
 		String input=scanner.nextLine();
 		Content content=new Content(input);
+		NotificationModule newNotificationModule=new NotificationModule(content);
 		System.out.println("Choose the language: Arabic-English-French-German-Italian");
 		input=scanner.nextLine();
-		Language obj;
-		switch(input)
-		{
-		case "Arabic":  obj=Language.Arabic;
-		case "English":  obj=Language.English;
-		case "French":  obj=Language.French;
-		case "German":	obj=Language.German;
-		case "Italian": obj=Language.Italian;
-		default: 	obj=Language.English;
-		}
+		newNotificationModule.setLanguage(input);
 		System.out.println("Choose the Channel: SMS-email");
 		input=scanner.nextLine();
-		Channel obj2;
-		switch(input)
-		{
-		case "SMS":  obj2=Channel.SMS;
-		case "email": obj2=Channel.email;  
-		default: obj2=Channel.email;
-		}
-		NotificationModule newNotificationModule=new NotificationModule(content,obj,obj2);
+		newNotificationModule.setChannel(input);
 		//add to the array list
 		NotificatonModules.add(newNotificationModule);
 		System.out.println("Your template is created successfully!");
@@ -52,8 +37,8 @@ public static void main(String args[]) throws IOException {
 	
 	NotificationDatabase db=new NotificationDatabase();
 	db.Create();
+	db.Create();
 	db.Read();
-	
 
 }
 }
