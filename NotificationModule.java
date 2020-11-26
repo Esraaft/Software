@@ -3,8 +3,8 @@ public class NotificationModule {
 	private Content content;
 	private Language language;
 	private Channel channel;
-	//constructor
-	public NotificationModule(Content content) {
+
+	public void setContent(Content content) {
 		this.content=content;
 	}
 	public String getContent() {
