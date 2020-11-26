@@ -1,5 +1,4 @@
 import java.util.Map;
-
 public class Content {
 	private Map Placeholders;
 	private String WholeText; // msg template without actual values
