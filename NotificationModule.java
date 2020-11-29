@@ -1,12 +1,11 @@
-
-public class NotificationModule {
+public class NotificationModule implements INotificationModule{
 	private Content content;
 	private Language language;
 	private Channel channel;
-	//constructor
-	public NotificationModule(Content content) {
-		this.content=content;
-	}
+	private String subject;
+	private int ID;
+
+	
 	public String getContent() {
 		return content.getTemplate();
 	}
@@ -16,8 +15,16 @@ public class NotificationModule {
 	public String getChannel() {
 		return channel.toString();
 	}
+	public String getSubject() {
+		return subject;
+	}
+	public int getID() {
+		return ID;
+	}
+	public void setContent(Content content) {
+		this.content=content;
+	}
 	public void setLanguage(String input) {
-		System.out.println("input is "+input);
 		switch(input)
 		{
 		case "Arabic":  language=Language.Arabic;break;
@@ -35,6 +42,12 @@ public class NotificationModule {
 		case "email": channel=Channel.email;  break;
 		default: channel=Channel.email;
 		}
+	}
+	public void setID(int ID) {
+		this.ID=ID;
+	}
+	public void setSubject(String subject) {
+		this.subject=subject;
 	}
 	
 }
