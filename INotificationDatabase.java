@@ -1,7 +1,9 @@
+import java.util.ArrayList;
 
 public interface INotificationDatabase {
-	public void Create();
-	public void Update();
-	public void Read();
-	public void Delete();
+	public void addTemplate(NotificationModule newNotificationModule);
+	public void updateTemplate(NotificationModule existinfNotificationModule);
+	public NotificationModule getTemplate(int ID);
+	public boolean deleteTemplate(int ID);
+	public ArrayList<NotificationModule> getAllTemplates();
 }
