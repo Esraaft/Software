@@ -1,33 +1,32 @@
 import java.util.ArrayList;
 
-public class ArrayBased implements IConnection {
+public class ArrayBased implements INotificationDatabase {
 	private ArrayList<NotificationModule> NotificatonModules=new ArrayList<NotificationModule>();
 	public int getSize() {
 		return NotificatonModules.size();
 	}
-	public void addNotification(NotificationModule newNotificationModule ) {
+	public void addTemplate(NotificationModule newNotificationModule ) {
 		NotificatonModules.add(newNotificationModule);
-		//Size++;
+
 	}
-	public void readNotifications() {
-		for(int i=0;i<NotificatonModules.size();i++) {
-			System.out.println("Template "+(i+1)+"):");
-			System.out.println("Subject: "+NotificatonModules.get(i).getSubject());
-			System.out.println("Content: "+NotificatonModules.get(i).getContent());
-			System.out.println("Supported Language: "+NotificatonModules.get(i).getLanguage());
-			System.out.println("Channel used: "+NotificatonModules.get(i).getChannel());
-		}
-		if(NotificatonModules.size()==0)
-			System.out.print("No Notification Modules available to read");
+	public NotificationModule getTemplate(int ID ) {
+		return NotificatonModules.get(ID);
+	}
+	public  ArrayList<NotificationModule> getAllTemplates() {
+		return NotificatonModules;
 		
 	}
 	
-	public void removeNotificationByID(int ID) {
-		NotificatonModules.remove(ID);
-		//Size--;
+	public boolean deleteTemplate(int ID) {
+		if(NotificatonModules.contains(ID)) {
+			NotificatonModules.remove(ID);
+			return true;
+		}
+		return false;
 	}
-	public NotificationModule geteNotificationByID(int ID ) {
-		return NotificatonModules.get(ID);
+	public void updateTemplate(NotificationModule existingNotificationModule) {
+		return ;
 	}
+	
 	
 }
